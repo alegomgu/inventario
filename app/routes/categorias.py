@@ -17,3 +17,8 @@ def get_db():
 def read_categorias(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     categorias = db.query(models.Categoria).offset(skip).limit(limit).all()
     return categorias
+
+@router.get("/categorias/{letra_inicial}")
+def read_categorias_by_letra(letra_inicial: str, db: Session = Depends(get_db)):
+    categorias = db.query(models.Categoria).filter(models.Categoria.nombre.startswith(letra_inicial)).all()
+    return categorias
