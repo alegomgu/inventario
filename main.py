@@ -18,4 +18,4 @@ app.include_router(hello_router)
 
 if __name__ == "__main__":
     # Aquí se podría incluir una función 'configure()' si es necesaria para configurar la app
-    uvicorn.run(app, host=os.getenv("SERVICE_URL"), port=int(os.getenv("SERVICE_PORT")))
+    uvicorn.run(app, host="127.0.0.1", port=int("5000"))
